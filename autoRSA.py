@@ -2,7 +2,6 @@
 # Script to automate RSA stock purchases
 
 # Import libraries
-import asyncio
 import os
 import sys
 import traceback
@@ -278,6 +277,12 @@ def argParser(args: list) -> stockOrder:
     orderObj.order_validate(preLogin=True)
     return orderObj
 
+
+def pyo3_buyall_task():
+    return
+
+def pyo3_sellall_task():
+    return
 
 if __name__ == "__main__":
     # Determine if ran from command line

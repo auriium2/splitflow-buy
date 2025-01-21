@@ -619,6 +619,9 @@ def split_embed(embed):
 
 
 async def processTasks(message, embed=False):
+
+    # TODO: send back to rust instead (pyo3)
+
     # Send message to discord via request post
     BASE_URL = f"https://discord.com/api/v10/channels/{DISCORD_CHANNEL}/messages"
     HEADERS = {
