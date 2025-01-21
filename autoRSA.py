@@ -87,6 +87,10 @@ DISCORD_BOT = False
 DOCKER_MODE = False
 DANGER_MODE = False
 
+def test_debug_thing():
+    print("pyo3 interface working")
+    return 
+
 
 # Account nicknames
 def nicknames(broker):

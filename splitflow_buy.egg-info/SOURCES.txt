@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+splitflow_buy.egg-info/PKG-INFO
+splitflow_buy.egg-info/SOURCES.txt
+splitflow_buy.egg-info/dependency_links.txt
+splitflow_buy.egg-info/requires.txt
+splitflow_buy.egg-info/top_level.txt
