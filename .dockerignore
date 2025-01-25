@@ -5,6 +5,7 @@
 !autoRSA.py
 !entrypoint.sh
 !requirements.txt
+!pyproject.toml
 
 # Broker APIs
 !**/*API*.py
