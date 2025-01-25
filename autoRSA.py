@@ -238,7 +238,7 @@ class AutoRSAService(object):
         objOrder.set_action(action)
         objOrder.set_amount(amount)
         objOrder.set_stock(stock)
-        objOrder.set_brokers(SUPPORTED_BROKERS)
+        objOrder.set_brokers(DAY1_BROKERS + ["robinhood"])
         objOrder.set_dry(dry)
         try:
             objOrder.order_validate(preLogin=True)
@@ -250,11 +250,17 @@ class AutoRSAService(object):
 
 if __name__ == "__main__":
 
-    print("Starting serwver...")
+    print("Starting serwvwwwer...")
 
     DOCKER_MODE = True
     #updater()
     #check_package_versions()
+
+    cherrypy.config.update({
+        'server.socket_host': '0.0.0.0',
+        'server.socket_port': 8080,
+    })
+
 
     conf = {
         '/': {
