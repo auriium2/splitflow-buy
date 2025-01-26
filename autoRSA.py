@@ -81,6 +81,21 @@ DAY1_BROKERS = [
     "tradier",
     "webull",
 ]
+
+SAFE_FOR_SF = [
+    "bbae",
+    "chase",
+    "dspac",
+    "fennel",
+    "firstrade",
+    "public",
+    "schwab",
+    "sofi",
+    "tastytrade",
+    "tradier",
+    "webull",
+]
+
 DISCORD_BOT = False
 DOCKER_MODE = False
 DANGER_MODE = False
@@ -244,7 +259,9 @@ class AutoRSAService(object):
             objOrder.order_validate(preLogin=True)
         except Exception as ex:
             return str(ex)
-        fun_run(objOrder, ("_init", "_transaction"))
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        loop.run_until_complete(fun_run(objOrder, ("_init", "_transaction"), None, loop))
         return "OK"
 
 
