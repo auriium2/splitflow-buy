@@ -150,7 +150,6 @@ def fun_run(orderObj: stockOrder, command, botObj=None, loop=None):
                         globals()[fun_name](DOCKER=DOCKER_MODE, loop=loop),
                         broker,
                     )
-
                 elif broker.lower() in [
                     "bbae",
                     "dspac",
