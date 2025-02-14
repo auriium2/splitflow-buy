@@ -100,6 +100,9 @@ DISCORD_BOT = False
 DOCKER_MODE = False
 DANGER_MODE = False
 
+loop = asyncio.new_event_loop()
+asyncio.set_event_loop(loop)
+
 # Account nicknames
 def nicknames(broker):
     if broker == "bb":
@@ -252,15 +255,14 @@ class AutoRSAService(object):
         objOrder.set_action(action)
         objOrder.set_amount(amount)
         objOrder.set_stock(stock)
-        objOrder.set_brokers(DAY1_BROKERS + ["robinhood"])
+        objOrder.set_brokers(["robinhood"])
         objOrder.set_dry(dry)
         try:
             objOrder.order_validate(preLogin=True)
         except Exception as ex:
             return str(ex)
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
-        loop.run_until_complete(fun_run(objOrder, ("_init", "_transaction"), None, loop))
+
+        fun_run(objOrder, ("_init", "_transaction"))
         return "OK"
 
 
@@ -274,7 +276,7 @@ if __name__ == "__main__":
 
     cherrypy.config.update({
         'server.socket_host': '0.0.0.0',
-        'server.socket_port': 8080,
+        'server.socket_port': 1441,
     })
 
 
